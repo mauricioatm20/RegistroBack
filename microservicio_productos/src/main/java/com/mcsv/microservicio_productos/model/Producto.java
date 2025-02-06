@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "producto")
+@Table(name = "productos")
 public class Producto {
 
     @Id
@@ -24,5 +24,5 @@ public class Producto {
     private double precioUnitario;
     private int stock;
 
-    private int idCategoria;
+    private long idCategoria;
 }

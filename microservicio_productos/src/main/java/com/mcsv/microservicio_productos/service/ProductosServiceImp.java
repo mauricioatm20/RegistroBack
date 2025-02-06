@@ -34,15 +34,14 @@ public class ProductosServiceImp implements ProductosService {
      @Override
     public Producto actualizarStock(long idProducto, int unidades) {
 
-    Producto producto = productoPorCodigo(idProducto);
+        Producto producto = productoPorCodigo(idProducto);
 
-    if (producto != null && producto.getStock()> unidades){
-        producto.setStock(producto.getStock()-unidades);
-        productosRepository.save(producto);
-        return producto;
+        if (producto != null && producto.getStock() >= unidades){
+            producto.setStock(producto.getStock()-unidades);
+            return productosRepository.save(producto);
+            }
+            return null;
         }
-        return null;
-    }
 
     @Override
     public Producto productoPorCodigo(long idProducto) {

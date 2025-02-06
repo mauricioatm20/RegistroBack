@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "categoria")
+@Table(name = "categorias")
 public class Categoria {
 
     @Id
