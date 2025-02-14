@@ -19,13 +19,13 @@ import com.mcsv.microservicio_productos.service.ProductosService;
 
 @RestController
 @CrossOrigin("*")
-public class ProductosCOntroller {
+public class ProductosController {
 
     @Autowired
     private ProductosService productosService;
 
 
-    @GetMapping("/categorias")
+    @GetMapping("categorias")
     public ResponseEntity<List<Categoria>> categorias() {
         return ResponseEntity.ok(productosService.categorias());
     }
@@ -40,13 +40,13 @@ public class ProductosCOntroller {
         return new ResponseEntity<>(productosService.productoPorCodigo(idProducto), HttpStatus.OK);
     }
 
-    @PutMapping("/producto")
+    @PutMapping(value = "producto")
     public ResponseEntity<Void> actualizarStock(@RequestParam ("idProducto")long idProducto, @RequestParam("unidades") int unidades) {
         Producto producto = productosService.actualizarStock(idProducto, unidades);
         if (producto != null) {
-            return ResponseEntity.ok().build();
+            return new ResponseEntity<>(HttpStatus.OK);
         } else {
-            return ResponseEntity.status(HttpStatus.CONFLICT).build();
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
     }
 }

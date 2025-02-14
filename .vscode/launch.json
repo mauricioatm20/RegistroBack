@@ -19,6 +19,16 @@
             "projectName": "microservice-market",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MicroservicioPedidosApplication<microservicio_pedidos>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.app.market.init.MicroservicioPedidosApplication",
+            "projectName": "microservicio_pedidos",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }

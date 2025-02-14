@@ -22,7 +22,6 @@ public class Producto {
     private String nombre;
     private double precioUnitario;
     private int stock;
-
     private long idCategoria;
 
 }

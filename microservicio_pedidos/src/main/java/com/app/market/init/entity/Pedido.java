@@ -1,7 +1,10 @@
 package com.app.market.init.entity;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,10 +28,12 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idPedido;
     private String usuario;
+
+    @JsonFormat(pattern = "dd/yyyy/MM")
     private Date fecha;
     private String estado;
 
     @OneToMany
     @JoinColumn(name = "fkPedido", referencedColumnName = "idPedido")
-    List<ElementosPedido> elementosPedido;
+    private List<ElementosPedido> elementosPedido;
 }

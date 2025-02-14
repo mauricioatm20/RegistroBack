@@ -21,10 +21,12 @@ public class ElementosPedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idElementoPedido;
+    
+    private long fkPedido;
+    private int unidades;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "fkProducto", referencedColumnName = "idProducto")
     private Producto producto;
-    private long idPedido;
-    private int unidades;
+
 }
