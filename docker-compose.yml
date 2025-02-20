@@ -12,55 +12,63 @@ services:
       - "3306:3306"
     networks:
       - ecommerce-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   microservicio_productos:
     build:
-      context: .
+      context: ./microservicio_productos
       dockerfile: Dockerfile
     container_name: microservicio_productos
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/market
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-ecomerce.cj4k2kme62ll.eu-north-1.rds.amazonaws.com:3306/market
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root1234.p
       SERVER_PORT: 8084
     ports:
       - "8084:8084"
     depends_on:
-      - mysql
+      mysql:
+        condition: service_healthy
     networks:
       - ecommerce-network
 
   microservice_clientes:
     build:
-      context: .
+      context: ./microservice_clientes
       dockerfile: Dockerfile-clientes
     container_name: microservice_clientes
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/market
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-ecomerce.cj4k2kme62ll.eu-north-1.rds.amazonaws.com:3306/market
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root1234.p
       SERVER_PORT: 8080
     ports:
       - "8080:8080"
     depends_on:
-      - mysql
+      mysql:
+        condition: service_healthy
     networks:
       - ecommerce-network
 
   microservicio_pedidos:
     build:
-      context: .
+      context: ./microservicio_pedidos
       dockerfile: Dockerfile-pedidos
     container_name: microservicio_pedidos
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/market
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-ecomerce.cj4k2kme62ll.eu-north-1.rds.amazonaws.com:3306/market
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root1234.p
       SERVER_PORT: 8002
     ports:
       - "8002:8002"
     depends_on:
-      - mysql
+      mysql:
+        condition: service_healthy
     networks:
       - ecommerce-network
 
