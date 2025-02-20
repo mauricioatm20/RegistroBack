@@ -16,7 +16,7 @@ services:
   microservicio_productos:
     build:
       context: .
-      dockerfile: Dockerfile-productos
+      dockerfile: Dockerfile
     container_name: microservicio_productos
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/market
