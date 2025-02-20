@@ -38,7 +38,7 @@ services:
 
   microservice_clientes:
     build:
-      context: ./microservice_clientes
+      context: ./microservice-clientes
       dockerfile: Dockerfile-clientes
     container_name: microservice_clientes
     environment:
