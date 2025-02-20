@@ -1,0 +1,6 @@
+com/mauricio/microservice/app/clientes/controller/ClienteController.class
+com/mauricio/microservice/app/clientes/service/ClienteServiceImpl.class
+com/mauricio/microservice/app/clientes/service/ClienteService.class
+com/mauricio/microservice/app/clientes/entities/Cliente.class
+com/mauricio/microservice/app/clientes/repository/ClienteRepository.class
+com/mauricio/microservice/app/clientes/MicroserviceMarketApplication.class

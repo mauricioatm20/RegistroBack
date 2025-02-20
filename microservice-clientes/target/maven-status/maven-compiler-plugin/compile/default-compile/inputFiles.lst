@@ -1,0 +1,6 @@
+/Users/mauricio/VisualStudio/Market-Mcsv/Market/microservice-clientes/src/main/java/com/mauricio/microservice/app/clientes/MicroserviceMarketApplication.java
+/Users/mauricio/VisualStudio/Market-Mcsv/Market/microservice-clientes/src/main/java/com/mauricio/microservice/app/clientes/controller/ClienteController.java
+/Users/mauricio/VisualStudio/Market-Mcsv/Market/microservice-clientes/src/main/java/com/mauricio/microservice/app/clientes/entities/Cliente.java
+/Users/mauricio/VisualStudio/Market-Mcsv/Market/microservice-clientes/src/main/java/com/mauricio/microservice/app/clientes/repository/ClienteRepository.java
+/Users/mauricio/VisualStudio/Market-Mcsv/Market/microservice-clientes/src/main/java/com/mauricio/microservice/app/clientes/service/ClienteService.java
+/Users/mauricio/VisualStudio/Market-Mcsv/Market/microservice-clientes/src/main/java/com/mauricio/microservice/app/clientes/service/ClienteServiceImpl.java
