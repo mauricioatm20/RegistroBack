@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mauricio.microservice.app.clientes.entities.Cliente;
 import com.mauricio.microservice.app.clientes.service.ClienteService;
 
-@CrossOrigin("*")
+@CrossOrigin(origins = {
+    "https://my-market-hoj2e2bpk-mauricios-projects-499152a5.vercel.app",
+    "https://my-market-neon.vercel.app"
+})
 @RestController
 public class ClienteController {
 
