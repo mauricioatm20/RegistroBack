@@ -1,22 +1,6 @@
 version: '3.8'
 
 services:
-  mysql:
-    image: mysql:8
-    container_name: mysql-market
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: root1234.p
-      MYSQL_DATABASE: market
-    ports:
-      - "3306:3306"
-    networks:
-      - ecommerce-network
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
 
   microservicio_productos:
     build:
@@ -30,9 +14,7 @@ services:
       SERVER_PORT: 8084
     ports:
       - "8084:8084"
-    depends_on:
-      mysql:
-        condition: service_healthy
+
     networks:
       - ecommerce-network
 
@@ -48,9 +30,7 @@ services:
       SERVER_PORT: 8080
     ports:
       - "8080:8080"
-    depends_on:
-      mysql:
-        condition: service_healthy
+
     networks:
       - ecommerce-network
 
@@ -66,11 +46,25 @@ services:
       SERVER_PORT: 8002
     ports:
       - "8002:8002"
-    depends_on:
-      mysql:
-        condition: service_healthy
+
     networks:
       - ecommerce-network
+  nginx:
+    image: nginx:latest
+    container_name: nginx-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    networks:
+      - ecommerce-network
+    depends_on:
+      - microservicio_productos
+      - microservice_clientes
+      - microservicio_pedidos
 
 networks:
   ecommerce-network:
